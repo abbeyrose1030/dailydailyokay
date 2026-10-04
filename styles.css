@@ -101,9 +101,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
   height: 46vh;
   background: repeating-conic-gradient(
     from 210deg at 28% 42%,
-    rgba(255, 214, 150, 0.13) 0deg,
-    transparent 7deg,
-    transparent 16deg
+    rgba(255, 214, 150, 0.07) 0deg,
+    transparent 8deg,
+    transparent 18deg
   );
   mask-image: radial-gradient(ellipse at 28% 42%, #000 0%, transparent 68%);
   pointer-events: none;
@@ -271,7 +271,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .slate {
   position: relative;
   padding: 26px 28px 18px;
-  background-color: rgba(16, 9, 6, 0.88);
+  background-color: rgba(14, 8, 6, 0.94);
   background-image:
     linear-gradient(var(--gold), var(--gold)),
     linear-gradient(var(--gold), var(--gold)),
@@ -293,7 +293,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
     left bottom, left bottom,
     right bottom, right bottom;
   box-shadow: 0 24px 50px rgba(20, 8, 4, 0.38);
-  backdrop-filter: blur(8px);
 }
 
 .slate::after {
@@ -354,24 +353,50 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .ago {
+  flex-shrink: 0;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-size: 0.95rem;
   color: var(--cream-dim);
+  text-align: right;
+}
+
+.record {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 7.25rem;
+  gap: 14px 16px;
+  align-items: start;
+  margin-top: 12px;
+}
+
+.record-copy { min-width: 0; }
+
+.record:not(:has(.frame:not([hidden]))) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.record:not(:has(.frame:not([hidden]))) .record-copy {
+  grid-column: 1;
 }
 
 .fact {
   margin-top: 12px;
-  max-width: 62ch;
   font-size: 1.12rem;
   font-weight: 420;
   line-height: 1.55;
   color: var(--cream);
+  overflow-wrap: break-word;
 }
 
+.meta[hidden] + .fact { margin-top: 0; }
+
 .frame {
-  margin: 16px 0 0;
-  padding: 4px;
+  grid-column: 2;
+  grid-row: 1;
+  margin: 2px 0 0;
+  padding: 3px;
+  width: 7.25rem;
+  height: 9.25rem;
   border: 1px solid rgba(226, 177, 90, 0.35);
   background: #24150f;
 }
@@ -379,9 +404,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .frame img {
   display: block;
   width: 100%;
-  height: 11.5rem;
+  height: 100%;
   object-fit: cover;
-  filter: sepia(0.38) saturate(0.68) contrast(1.05);
+  object-position: center 18%;
+  filter: sepia(0.42) saturate(0.62) contrast(1.05);
 }
 
 .controls {
@@ -448,6 +474,15 @@ button:disabled {
 
 #credit-dot { margin: 0 0.4rem; }
 
+#source {
+  display: inline-block;
+  max-width: min(18rem, 58vw);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
 @keyframes drift {
   0% { transform: translate3d(0, 8px, 0); opacity: 0; }
   12% { opacity: 0.75; }
@@ -467,11 +502,18 @@ button:disabled {
   .slate { padding: 22px 16px 14px; }
   .brand, .clock { letter-spacing: 0.22em; font-size: 0.86rem; }
   .fact { font-size: 1.05rem; }
+  .record { grid-template-columns: 5.4rem minmax(0, 1fr); }
+  .frame {
+    grid-column: 1;
+    width: 5.4rem;
+    height: 7rem;
+  }
+  .record-copy { grid-column: 2; }
 }
 
 @media (max-height: 760px) {
   .day { font-size: clamp(4.6rem, 12vw, 7rem); }
-  .frame img { height: 8rem; }
+  .frame { height: 7rem; }
   .stage { padding-top: 16px; padding-bottom: 18px; }
 }
 

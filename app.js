@@ -145,6 +145,8 @@ function showSource(page) {
   els.source.hidden = false;
   els.creditDot.hidden = false;
   els.source.href = href;
+  const title = clean(String(page.title || "").replace(/_/g, " "));
+  els.source.textContent = title || "Read the account";
 }
 
 function renderRecord() {

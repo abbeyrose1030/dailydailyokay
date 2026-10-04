@@ -51,8 +51,8 @@
         </linearGradient>
       </defs>
 
-      <path fill="url(#mesaFar)" d="M0 360 L0 300 L70 292 L130 250 L180 268 L250 200 L320 214 L390 168 L450 196 L530 176 L610 214 L690 188 L770 230 L860 200 L950 236 L1030 176 L1110 198 L1180 150 L1260 186 L1340 166 L1440 210 L1440 390 Z"/>
-      <path fill="url(#mesaNear)" opacity="0.95" d="M0 420 L0 340 L120 330 L180 292 L240 318 L320 270 L400 300 L470 258 L540 292 L650 310 L760 268 L840 300 L940 286 L1040 246 L1120 280 L1220 250 L1320 292 L1440 270 L1440 460 Z"/>
+      <path fill="url(#mesaFar)" d="M0 400 L0 330 L36 330 L52 246 L168 246 L186 312 L268 304 L286 198 L430 194 L452 286 L560 278 L578 176 L748 172 L772 274 L900 282 L922 210 L1088 202 L1112 292 L1240 284 L1262 188 L1388 196 L1410 308 L1440 300 L1440 430 Z"/>
+      <path fill="url(#mesaNear)" d="M0 470 L0 368 L90 368 L112 292 L230 300 L248 248 L360 252 L384 330 L500 338 L524 270 L680 278 L708 236 L860 244 L888 328 L1040 336 L1068 268 L1220 276 L1248 230 L1380 242 L1404 330 L1440 322 L1440 490 Z"/>
 
       <path fill="url(#duneFar)" d="M0 470 C160 420 280 490 460 450 C660 404 780 470 980 430 C1160 394 1300 450 1440 420 L1440 760 L0 760 Z"/>
       <path fill="none" stroke="#f0c48a" stroke-width="3" opacity="0.45" d="M0 470 C160 420 280 490 460 450 C660 404 780 470 980 430 C1160 394 1300 450 1440 420"/>
@@ -60,10 +60,10 @@
       <path fill="url(#duneMid)" d="M0 560 C180 490 340 580 540 530 C760 474 900 560 1120 510 C1260 478 1360 530 1440 500 L1440 760 L0 760 Z"/>
       <path fill="none" stroke="#e7b27a" stroke-width="2.5" opacity="0.4" d="M0 560 C180 490 340 580 540 530 C760 474 900 560 1120 510 C1260 478 1360 530 1440 500"/>
 
-      <g class="watcher" fill="#140c09">
-        <path d="M1018 470c1.2 2 1.4 4.2-.2 6.2-2.2.8-4.4 0-5.2-1.8.2-3 2.4-5.4 5.4-4.4z"/>
-        <path d="M1016 478c5 1.4 8.2 7.6 7.4 16.4-.6 6-1.4 14.6-.6 23.6h-4.6c-.6-7.4.2-13.4.8-19.2-1.6 6-2.2 12-2.2 19.2h-4.6c.2-9 1-16.4 3.2-22.4-3.2 3-7 4.6-11 3.8 1.6-4.6 6.2-10.6 12.4-12.2.2-3 .8-6 .2-9.2z"/>
-        <path d="M1020 480c6.4.6 13 4.2 17.6 3.6 1.4-.8-1.6-3-6.4-3.8-5-.8-8.2-.6-11.2.2z"/>
+      <g fill="#140c09" transform="translate(1004 404)">
+        <path d="M11 1.5c2.4 2.4 2.6 5.2-.2 7.2-2.8 1-5.2 0-6.2-2.2.2-3.6 3-6.4 6.4-5z"/>
+        <path d="M9 11c6.2 1.6 10 9.2 8.8 19.4-.8 7.4-1.6 17.2-.6 27.6h-5.6c-.8-9 .2-16.2 1-23-1.8 7.2-2.6 14.4-2.6 23H4.2c.2-10.8 1.2-19.6 3.8-26.6-3.8 3.6-8.4 5.6-13.2 4.6 2-5.6 7.6-12.8 14.8-14.6.2-3.6 1-7.2.2-10.8z"/>
+        <path d="M13 13.5c8 .8 16 5 21.2 4.2 1.6-1-2-3.6-7.8-4.6-6-.8-9.8-.6-13.4.4z"/>
       </g>
 
       <path fill="url(#duneNear)" d="M0 660 C220 600 380 690 620 640 C880 586 1040 700 1280 650 C1360 632 1400 648 1440 640 L1440 760 L0 760 Z"/>
@@ -105,14 +105,18 @@
         <div class="divider" aria-hidden="true"><span></span></div>
 
         <div id="story">
-          <div class="meta" id="meta" hidden>
-            <p class="year" id="year"></p>
-            <p class="ago" id="ago"></p>
+          <div class="record">
+            <div class="record-copy">
+              <div class="meta" id="meta" hidden>
+                <p class="year" id="year"></p>
+                <p class="ago" id="ago"></p>
+              </div>
+              <p class="fact" id="fact">Searching the record for this date…</p>
+            </div>
+            <figure class="frame" id="frame" hidden>
+              <img id="photo" alt="" decoding="async">
+            </figure>
           </div>
-          <p class="fact" id="fact">Searching the record for this date…</p>
-          <figure class="frame" id="frame" hidden>
-            <img id="photo" alt="" decoding="async">
-          </figure>
           <div class="controls" id="controls" hidden>
             <button type="button" id="prev">Previous</button>
             <p class="count" id="count"></p>
@@ -123,7 +127,7 @@
         <button type="button" class="retry" id="retry" hidden>Try again</button>
 
         <p class="credit">
-          <a id="source" hidden>The account</a>
+          <a id="source" hidden>Read the account</a>
           <span id="credit-dot" hidden aria-hidden="true">·</span>
           <a id="almanac" href="https://en.wikipedia.org/wiki/October_3">October 3 on Wikipedia</a>
         </p>
