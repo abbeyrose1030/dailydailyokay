@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#c4622a">
+  <title>Daymark</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23c4622a' width='32' height='32'/%3E%3Ccircle cx='16' cy='13' r='5' fill='%23ffe3b0'/%3E%3Cpath fill='%236b3a22' d='M0 22c4-5 8-3 12-6s8-2 12 1 8 4 8 4v11H0z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Cinzel:wght@600;700&family=Literata:opsz,wght@7..72,420;7..72,560&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="world" aria-hidden="true">
+    <div class="sky"></div>
+    <div class="rays"></div>
+    <div class="halo"></div>
+    <div class="sun"></div>
+    <div class="flare"></div>
+    <div class="haze"></div>
+    <svg class="terrain" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMax slice">
+      <defs>
+        <linearGradient id="mesaFar" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#d48958"/>
+          <stop offset="0.5" stop-color="#c06d40"/>
+          <stop offset="1" stop-color="#a85c38"/>
+        </linearGradient>
+        <linearGradient id="mesaNear" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#a25a32"/>
+          <stop offset="1" stop-color="#6d3822"/>
+        </linearGradient>
+        <linearGradient id="duneFar" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#e0a06a"/>
+          <stop offset="0.45" stop-color="#c47b45"/>
+          <stop offset="1" stop-color="#a86438"/>
+        </linearGradient>
+        <linearGradient id="duneMid" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#c47a42"/>
+          <stop offset="0.5" stop-color="#9a552c"/>
+          <stop offset="1" stop-color="#6e3a20"/>
+        </linearGradient>
+        <linearGradient id="duneNear" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#8d4e2c"/>
+          <stop offset="0.42" stop-color="#623618"/>
+          <stop offset="1" stop-color="#3a2014"/>
+        </linearGradient>
+        <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#000" stop-opacity="0"/>
+          <stop offset="1" stop-color="#140a06" stop-opacity="0.55"/>
+        </linearGradient>
+      </defs>
+
+      <path fill="url(#mesaFar)" d="M0 360 L0 300 L70 292 L130 250 L180 268 L250 200 L320 214 L390 168 L450 196 L530 176 L610 214 L690 188 L770 230 L860 200 L950 236 L1030 176 L1110 198 L1180 150 L1260 186 L1340 166 L1440 210 L1440 390 Z"/>
+      <path fill="url(#mesaNear)" opacity="0.95" d="M0 420 L0 340 L120 330 L180 292 L240 318 L320 270 L400 300 L470 258 L540 292 L650 310 L760 268 L840 300 L940 286 L1040 246 L1120 280 L1220 250 L1320 292 L1440 270 L1440 460 Z"/>
+
+      <path fill="url(#duneFar)" d="M0 470 C160 420 280 490 460 450 C660 404 780 470 980 430 C1160 394 1300 450 1440 420 L1440 760 L0 760 Z"/>
+      <path fill="none" stroke="#f0c48a" stroke-width="3" opacity="0.45" d="M0 470 C160 420 280 490 460 450 C660 404 780 470 980 430 C1160 394 1300 450 1440 420"/>
+
+      <path fill="url(#duneMid)" d="M0 560 C180 490 340 580 540 530 C760 474 900 560 1120 510 C1260 478 1360 530 1440 500 L1440 760 L0 760 Z"/>
+      <path fill="none" stroke="#e7b27a" stroke-width="2.5" opacity="0.4" d="M0 560 C180 490 340 580 540 530 C760 474 900 560 1120 510 C1260 478 1360 530 1440 500"/>
+
+      <g class="watcher" fill="#140c09">
+        <path d="M1018 470c1.2 2 1.4 4.2-.2 6.2-2.2.8-4.4 0-5.2-1.8.2-3 2.4-5.4 5.4-4.4z"/>
+        <path d="M1016 478c5 1.4 8.2 7.6 7.4 16.4-.6 6-1.4 14.6-.6 23.6h-4.6c-.6-7.4.2-13.4.8-19.2-1.6 6-2.2 12-2.2 19.2h-4.6c.2-9 1-16.4 3.2-22.4-3.2 3-7 4.6-11 3.8 1.6-4.6 6.2-10.6 12.4-12.2.2-3 .8-6 .2-9.2z"/>
+        <path d="M1020 480c6.4.6 13 4.2 17.6 3.6 1.4-.8-1.6-3-6.4-3.8-5-.8-8.2-.6-11.2.2z"/>
+      </g>
+
+      <path fill="url(#duneNear)" d="M0 660 C220 600 380 690 620 640 C880 586 1040 700 1280 650 C1360 632 1400 648 1440 640 L1440 760 L0 760 Z"/>
+      <path fill="none" stroke="#c48452" stroke-width="2" opacity="0.35" d="M0 660 C220 600 380 690 620 640 C880 586 1040 700 1280 650 C1360 632 1400 648 1440 640"/>
+      <path fill="url(#shade)" d="M0 680 L1440 680 L1440 760 L0 760 Z"/>
+    </svg>
+    <div class="ground-shade"></div>
+    <div class="dust">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span>
+    </div>
+    <svg class="grain" width="100%" height="100%">
+      <filter id="noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noise)"/>
+    </svg>
+    <div class="vignette"></div>
+  </div>
+
+  <div class="stage">
+    <header class="topbar">
+      <p class="brand"><span class="mark" aria-hidden="true"></span>Daymark</p>
+      <p class="clock" id="clock"></p>
+    </header>
+
+    <div class="cluster">
+      <div class="date-block">
+        <h1 class="date-heading">
+          <span class="month" id="month">October</span>
+          <span class="day" id="day">3</span>
+        </h1>
+        <p class="weekday" id="weekday">Saturday</p>
+      </div>
+
+      <section class="slate" id="slate" aria-labelledby="kicker">
+        <h2 class="kicker" id="kicker">On this day</h2>
+        <div class="divider" aria-hidden="true"><span></span></div>
+
+        <div id="story">
+          <div class="meta" id="meta" hidden>
+            <p class="year" id="year"></p>
+            <p class="ago" id="ago"></p>
+          </div>
+          <p class="fact" id="fact">Searching the record for this date…</p>
+          <figure class="frame" id="frame" hidden>
+            <img id="photo" alt="" decoding="async">
+          </figure>
+          <div class="controls" id="controls" hidden>
+            <button type="button" id="prev">Previous</button>
+            <p class="count" id="count"></p>
+            <button type="button" id="next">Next</button>
+          </div>
+        </div>
+
+        <button type="button" class="retry" id="retry" hidden>Try again</button>
+
+        <p class="credit">
+          <a id="source" hidden>The account</a>
+          <span id="credit-dot" hidden aria-hidden="true">·</span>
+          <a id="almanac" href="https://en.wikipedia.org/wiki/October_3">October 3 on Wikipedia</a>
+        </p>
+        <noscript><p class="fact">Daymark needs JavaScript to fetch today’s record.</p></noscript>
+      </section>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
