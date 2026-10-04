@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 PORT=8765
 if ! lsof -iTCP:$PORT -sTCP:LISTEN >/dev/null 2>&1; then
-  python3 -m http.server $PORT >/tmp/daymark-server.log 2>&1 &
+  python3 -m http.server $PORT >/tmp/dailyfax-server.log 2>&1 &
   for i in {1..30}; do
     if lsof -iTCP:$PORT -sTCP:LISTEN >/dev/null 2>&1; then
       break

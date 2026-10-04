@@ -94,7 +94,7 @@ function renderChrome(date = new Date()) {
   });
   els.almanac.href = `https://en.wikipedia.org/wiki/${monthName}_${dayNum}`;
   els.almanac.textContent = `${monthName} ${dayNum} on Wikipedia`;
-  document.title = `${monthName} ${dayNum} — Daymark`;
+  document.title = `${monthName} ${dayNum} — dailyfax`;
 }
 
 function pack(events) {
@@ -206,7 +206,7 @@ async function loadRecords() {
   }
 
   if (location.protocol === "file:") {
-    showMessage("Open Start Daymark so today’s record can be reached.", false);
+    showMessage("Open Start dailyfax so today’s record can be reached.", false);
     return;
   }
 

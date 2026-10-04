@@ -212,6 +212,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .brand {
   display: flex;
   align-items: center;
+  text-transform: none;
+  letter-spacing: 0.14em;
 }
 
 .mark {
